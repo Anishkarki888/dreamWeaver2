@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    {% comment %} <link rel="stylesheet" hrexf="/static/index.css"> {% endcomment %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+</head>
+<body>
+    <nav class="heading">
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+        </div>
+        <ul class="head-links2">
+            {% comment %} <li class="active" ><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blogs">Blogs</a></li> {% endcomment %}
+            <li><a href="{% url 'home' %}">Log Out</a></li>
+        </ul>
+        {% comment %} <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div> {% endcomment %}
+    </nav>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="HEAD">Application</li>
+                <ul>
+                    <li><a href="{% url 'usa' %}">USA</a></li>
+                    <li><a href="{% url 'working' %}">Australia</a></li>
+                    <li><a href="{% url 'working' %}">Canada</a></li>
+                    <li><a href="{% url 'working' %}">UK</a></li>
+                    <li><a href="{% url 'working' %}">Japan</a></li>
+                    <li><a href="{% url 'working' %}">South Korea</a></li>
+                    <li><a href="{% url 'working' %}">Dubai</a></li>
+                    <li><a href="{% url 'working' %}">New Zealand</a></li>
+                </ul>
+                <li class="HEAD">Courses</li>
+                <ul>
+                    <li><a href="{% url 'working' %}">IELTS/PTE</a></li>
+                    <li><a href="{% url 'working' %}">Finance</a></li>
+                    <li><a href="{% url 'working' %}">Fashion</a></li>
+                    <li><a href="{% url 'working' %}">Barista</a></li>
+                    <li><a href="{% url 'working' %}">Cookery</a></li>
+                    <li><a href="{% url 'working' %}">Hair Salon</a></li>
+                    <li><a href="{% url 'working' %}">Driving</a></li>
+                </ul>
+            </ul>
+        </nav>
+        <div class="content">
+            {% if user.is_authenticated %}
+            <p>
+                <img src="{% static 'image/user1.png' %}" alt="User Logo" style="width: 30px; height: 30px; border-radius: 50%;">
+                Welcome, {{ user.username }}!
+            </p>
+        {% else %}
+            <p>Welcome, Guest!</p>
+        {% endif %}
+        <h2>Admin Feedback:</h2>
+        {% if feedbacks %}
+            {% for feedback in feedbacks %}
+                <div class="feedback">
+                    <p>{{ feedback.feedback_text }}</p>
+                    <p><small>Received on: {{ feedback.created_at }}</small></p>
+                    <hr>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No Feedback Currently</p>
+        {% endif %}
+            {% block middle %}
+         
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+{% extends 'loggedin.html' %}
+
+{% block title %}USA Application Process{% endblock %}
+
+{% block middle %}
+<h1 class="new_index1">Application Process</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+ 
+    <div class="step">
+        <h2 class="new_index">Step 1: Picture of citizenship and passport</h2>
+        <div class="sample-pics">
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+        </div>
+        <div class="upload-section">
+            <label for="id_citizenship_passport">Upload Here:</label>
+            {{ form.citizenship_passport }}
+        </div>
+    </div>
+
+    <div class="step">
+        <h2 class="new_index">Step 2: Transcript with USEF Logo</h2>
+        <div class="sample-pics">
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+        </div>
+        <div class="upload-section">
+            <label for="id_transcript">Upload Here:</label>
+            {{ form.transcript }}
+        </div>
+    </div>
+
+    <div class="step">
+        <h2 class="new_index">Step 3: English Proficiency/IELTS Test Score</h2>
+        <div class="sample-pics">
+            <div class="pic">PIC</div>
+        </div>
+        <div class="upload-section">
+            <label for="id_ielts_score">Upload Here:</label>
+            {{ form.ielts_score }}
+        </div>
+    </div>
+
+    <div class="step">
+        <h2 class="new_index">Step 4: SOP</h2>
+        <div class="sample-pics">
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+            <div class="pic">PIC</div>
+        </div>
+        <div class="upload-section">
+            <label for="id_sop">Upload Here:</label>
+            {{ form.sop }}
+        </div>
+    </div>
+
+    <div class="step">
+        <h2 class="new_index">Step 5: Bank Balance</h2>
+        <div class="sample-pics">
+            <div class="pic">PIC</div>
+        </div>
+        <div class="upload-section">
+            <label for="id_bank_balance">Upload Here:</label>
+            {{ form.bank_balance }}
+        </div>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+<h1>Your Documents</h1>
+<ul>
+    {% for document in documents %}
+    <li>
+        <p>Citizenship Passport: <a href="{{ document.citizenship_passport.url }}" target="_blank">View</a></p>
+        <p>Transcript: <a href="{{ document.transcript.url }}" target="_blank">View</a></p>
+        <p>IELTS Score: <a href="{{ document.ielts_score.url }}" target="_blank">View</a></p>
+        <p>SOP: <a href="{{ document.sop.url }}" target="_blank">View</a></p>
+        <p>Bank Balance: <a href="{{ document.bank_balance.url }}" target="_blank">View</a></p>
+        {% if document.feedback %}
+        <p>Admin Feedback: {{ document.feedback }}</p>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

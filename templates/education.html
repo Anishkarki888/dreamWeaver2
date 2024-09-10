@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Form</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body class="education">
+    <main>
+        <header class="edu">
+            <h1>University Recommendation System</h1>
+            <form action="{% url 'university_recommendation' %}" method="post">
+                {% csrf_token %}
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+                
+                <label for="country">Country:</label>
+                <input type="text" id="country" name="country" required>
+                
+                <label for="cost">Maximum Budget (in dollars):</label>
+                <input type="number" id="cost" name="cost" required>
+                
+                <label for="subjects">Preferred Subjects (comma-separated):</label>
+                <input type="text" id="subjects" name="subjects" required>
+                
+                <label for="ielts">IELTS Score:</label>
+                <input type="number" step="0.1" id="ielts" name="ielts" required>
+                
+                <button type="submit">Get Recommendations</button>
+                <button type="button" onclick="window.location.href='{% url 'home' %}'">Back to Home Page</button>
+            </form>
+            {% if recommendations %}
+            <h2>Recommended Universities</h2>
+            <div class="card-container">
+                {% for uni in recommendations %}
+                    <div class="card">
+                        <a href="{% url 'university_detail' uni.University %}" class="card-link">
+                            <h2 class="card-title">{{ uni.University }}</h2>
+                            <p class="card-location">{{ uni.City }}, {{ uni.Country }}</p>
+                            <p class="card-cost">Cost: ${{ uni.Cost }}</p>
+                            <p class="card-ielts">IELTS Score: {{ uni.IELTS}}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </header>
+    </main>
+</body>
+</html>

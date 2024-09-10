@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="main body">
+    <header>
+        <nav class="heading">
+            <div class="logo">
+                <img src="logo.png" alt="logo">
+            </div>
+            <ul class="head-links">
+                <li class="active" ><a href="#home">Home</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="{% url 'signup' %}">Signup</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                &#9776;
+            </div>
+        </nav>
+        <script>
+            function toggleMenu() {
+                const menu = document.querySelector('.head-links');
+                menu.classList.toggle('open-menu');
+            }
+        </script>
+        <div class="hero">
+            <h1>WELCOME TO THE DREAM WEAVERS</h1>
+            <p>We stand behind your success</p>
+            <a href="{% url 'education' %}" class="button">EDUCATION</a>
+            <a href="{% url 'employment' %}" class="button">EMPLOYMENT</a>
+            <div class="hero3">
+                <a href="{% url 'apply' %}" class="button2">APPLY FROM HERE</a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="ai chatbot"> 
+    
+        <div class="chat-button" id="chatButton">
+            Ask Me
+        </div>
+    
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">
+                <span>Chatbot</span>
+                <span class="close-chat" id="closeChat">&times;</span>
+            </div>
+            <div class="chat-content" id="chatContent">
+                <div class="bot-message">Hello! How can I help you today?</div>
+    
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ask a question...">
+                <button id="sendButton">Send</button>
+            </div>
+        </div>
+    
+        <script>
+            document.getElementById('chatButton').addEventListener('click', function() {
+                document.getElementById('chatBox').style.display = 'block';
+            });
+    
+            document.getElementById('closeChat').addEventListener('click', function() {
+                document.getElementById('chatBox').style.display = 'none';
+            });
+        </script>
+    </div>
+
+    
+    <div id="subhead" class="subhead">
+        <h1>Our Courses</h1>
+    </div>
+    <section id="courses" class="courses">
+        <div class="courses2">
+            <div class="service-item">
+                <img src="/static/image/Dsat.svg" alt="Ielts/PTE">
+                <h3>IELTS/PTE</h3>
+            </div>
+            <div class="service-item">
+                <img src="/static/image/Dfinance.svg" alt="Financial Education">
+                <h3>FINANCIAL EDUCATION</h3>
+            </div>
+            <div class="service-item">
+                <img src="/static/image/Dprogram.svg" alt="Programming">
+                <h3>PROGRAMMING</h3>
+            </div>
+            <div class="service-item">
+                <img src="/static/image/Dfashion.svg" alt="Fashion Design">
+                <h3>FASHION DESIGN</h3>
+            </div>
+        </div>
+        <div class="courses2">
+            <div class="service-item">
+                <img src="/static/image/Dbarista.svg" alt="Barista Training">
+                <h3>BARISTA</h3>
+            </div>
+            <div class="service-item">
+                <img src="/static/image/Dcook.svg" alt="Cooking">
+                <h3>COOKERY</h3>
+            </div>
+            <div class="service-item">
+                <img src="/static/image/Dhaircut.svg" alt="Hair Salon">
+                <h3>HAIR-SALON</h3>
+            </div>
+            <div class="service-item">
+                <img src="/static/image/Ddriving.svg" alt="Driving">
+                <h3>DRIVING</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h1 class="about-why">Why Choose Us</h1>
+        <div class="reasons">
+            <div class="reason">
+                <img src="/static/image/barista.png" alt="Experienced Advisor">
+                <h3>Experienced Advisor</h3>
+             
+            </div>
+            <div class="reason">
+                <img src="/static/image/barista.png" alt="Great Ideas">
+                <h3>Trusted</h3>
+
+            </div>
+            <div class="reason">
+                <img src="/static/image/barista.png" alt="Worldwide System">
+                <h3>Friendly A.I</h3>
+
+            </div>
+            <div class="reason">
+                <img src="/static/image/barista.png" alt="Security Information">
+                <h3>Easy Process</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Request A Call Back</h2>
+        <form>
+            <div class="contactform">
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="text" name="phone" placeholder="Phone Number">
+                <input type="text" name="subject" placeholder="Subject">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+
+    <section id="blogs" class="blogs">
+        <h2>Blogs</h2>
+        <div class="testimonial-item">
+            <img src="static/image/robort.png" alt="User Image">
+            <p>"Applying abroad was daunting because I wasn't sure which college would be the right fit for me. However, Dream Weaver's recommendation system made it easy to find the perfect college. The application process seemed overwhelming, and I was worried about which documents I needed, but Dream Weaver made the entire process simple and stress-free."</p>
+            <h4>Sonam Waiba</h4>
+            <h4>AI Engineer,SSRC,Australia</h4>
+        </div>
+        <div class="testimonial-item">
+            <img src="static/image/hotelmanager.png" alt="User Image">
+            <p>"My uncle lost 2 lakh rupees to a fraudulent manpower agency, so I was hesitant to apply for work abroad. But then I found Dream Weaver, and thanks to them, I'm now working for a good company and earning a substantial income."</p>
+            <h4>hari Bahadur</h4>
+            <h4>Hotel Manager,KFC,Dubai</h4>
+        </div>
+        <div class="testimonial-item">
+            <img src="static/image/student.png" alt="User Image">
+            <p>"I wanted to become financially independent through trading and investing, but these courses aren't offered in college. Then I discovered Dream Weaver, where they teach the skills that the traditional education system doesn't cover."</p>
+            <h4>Bibek Ale Magar</h4>
+            <h4>+2 Student,Sunway,Maitidevi</h4>
+        </div>
+    </section>
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" target="_blank" class="icon">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="icon">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="icon">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com" target="_blank" class="icon">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+        </div>
+    </footer>
+    
+    {% comment %} <footer>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com" target="_blank" class="icon">Linkdln<i class="fab fa-linkedin"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="icon">Twitter<i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="icon">Instagram<i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com" target="_blank" class="icon">Facebook<i class="fab fa-facebook"></i></a>
+        </div>
+    </footer> {% endcomment %}
+</body>
+</html>
+
+ 

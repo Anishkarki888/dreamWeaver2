@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <nav class="heading">
+        <div class="logo">
+            <img src="logo.png" alt="logo">
+        </div>
+        <ul class="head-links">
+            <li class="active" ><a href="#home">Home</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blogs">Blogs</a></li>
+            <li><a href="{% url 'home' %}">Log Out</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+    </nav>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="HEAD">Application</li>
+                <ul>
+                    <li><a href="{% url 'usa' %}">USA</a></li>
+                    <li><a href="#aus">Australia</a></li>
+                    <li><a href="#aus">Canada</a></li>
+                    <li><a href="#aus">UK</a></li>
+                    <li><a href="#aus">Japan</a></li>
+                    <li><a href="#aus">South Korea</a></li>
+                    <li><a href="#aus">Dubai</a></li>
+                    <li><a href="#aus">New Zealand</a></li>
+                </ul>
+                <li class="HEAD">Courses</li>
+                <ul>
+                    <li><a href="#course">IELTS/PTE</a></li>
+                    <li><a href="#course">Finance</a></li>
+                    <li><a href="#course">Fashion</a></li>
+                    <li><a href="#course">Barista</a></li>
+                    <li><a href="#course">Cookery</a></li>
+                    <li><a href="#course">Hair Salon</a></li>
+                    <li><a href="#course">Driving</a></li>
+                </ul>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1 class="new_index">Latest Update</h1>
+            <div class="step">
+                <h2 class="new_index"></h2>
+                <div class="sample-pics">
+                    <div class="pic">PIC</div>
+                </div>
+            </div>
+            <div class="step">
+                <h2 class="new_index">Latest Courses</h2>
+                <div class="sample-pics">
+                    <div class="pic">PIC</div>
+                    <div class="pic">PIC</div>
+                    <div class="pic">PIC</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

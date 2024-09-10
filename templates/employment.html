@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employment Form</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body class="education">
+    <main>
+        <header class="edu">
+            <h1>Employment Application</h1>
+        </header>
+        <form>
+            <label class="title" for="job">Job Title:</label>
+            <input type="text" id="job" name="job" placeholder="Enter the job title you want" required>
+            
+            <label class="title" for="country">Preferred Country:</label>
+            <input type="text" id="country" name="country" placeholder="Enter the country you want to go to" required>
+
+            <label class="title" for="skill">Skills:</label>
+            <input type="text" id="skill" name="skill" placeholder="Enter the skill you have" required>
+            
+            <label class="title" for="salary">Expected Salary:</label>
+            <input type="text" id="salary" name="salary" placeholder="Enter the salary you accept" required>
+            
+            <button type="submit1">Submit</button>
+
+            <button type="button" onclick="window.location.href='{% url 'home' %}'">Back to Home Page</button>
+        </form>
+    </main>
+</body>
+</html>

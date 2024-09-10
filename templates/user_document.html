@@ -1,0 +1,29 @@
+<h1>Your Documents</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Uploaded At</th>
+            <th>Citizenship Passport</th>
+            <th>Transcript</th>
+            <th>IELTS Score</th>
+            <th>SOP</th>
+            <th>Bank Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for document in documents %}
+        <tr>
+            <td>{{ document.uploaded_at }}</td>
+            <td><a href="{{ document.citizenship_passport.url }}">View</a></td>
+            <td><a href="{{ document.transcript.url }}">View</a></td>
+            <td><a href="{{ document.ielts_score.url }}">View</a></td>
+            <td><a href="{{ document.sop.url }}">View</a></td>
+            <td><a href="{{ document.bank_balance.url }}">View</a></td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No documents found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

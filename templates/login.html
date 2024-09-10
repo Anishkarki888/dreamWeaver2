@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - ARGES</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <main>
+        <div class="signup-contain">
+            <h2>Log In</h2>
+            <form id="loginForm" method="POST">
+                {% csrf_token %}
+                <label for="loginUsername">Username:</label>
+                <input type="text" id="loginUsername" name="username" placeholder="Enter Username" required>
+
+                <label for="loginPassword">Password:</label>
+                <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+
+                <button type="submit">Log In</button>
+
+
+                <button type="button" onclick="window.location.href='{% url 'home' %}'">Back to Home Page</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Dreamweaver.inc</p>
+    </footer>
+</body>
+</html>
+
+

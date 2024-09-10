@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body class="application">
+    <main>
+        <header class="apply">
+            <h1>Application Form</h1>
+        </header>
+        <form action="#" method="post" action=" {% url "submitform" %} ">
+            <div class="alert alert-danger" role="alert">
+                Please Enter The value
+            </div>
+           
+            {% csrf_token %}
+            <label class="title" for="name">Full Name:</label>
+            <input type="text" id="name" name="name"  value="{{name}}" placeholder="Enter your full name" required>
+
+            <label class="title" for="reason">Why and What Do You Want to Do:</label>
+            <textarea id="reason" name="reason" value="{{reason}}" placeholder="Explain why and what you want to do" rows="4" required></textarea>
+
+            <label class="title" for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{email}}" placeholder="Enter your email address" required>
+
+            <label class="title" for="phone">Phone Number:</label>
+            <input type="text" id="phone" name="phone" value="{{phone}}" placeholder="Enter your phone number" required> 
+            
+            {% comment %} output
+            <input type="text" value="{{output}}"/> {% endcomment %}
+
+            <button type="submit">Apply</button>
+            <button type="button" onclick="window.location.href='{% url 'home' %}'">Back to Home Page</button>
+        </form>
+    </main>
+</body>
+</html>

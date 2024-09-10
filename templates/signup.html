@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ARGES</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body class="signup-body">
+    <main>
+        <div class="signup-contain">
+            {% if error %}
+            <div style="color: red;">
+                {{ error }}
+            </div>
+            {% endif %}
+            
+            <h2>Create an Account</h2>
+            <form id="signupForm" method="POST">
+                {% csrf_token %}
+                <label for="signupEmail">Username:</label>
+                <input type="username" id="signupEmail" name="username" placeholder="Username" required>
+
+                <label for="signupEmail">Email:</label>
+                <input type="email" id="signupEmail" name="email" placeholder="Email or Phone" required>
+                
+                <label for="signupPassword">Password:</label>
+                <input type="password" id="signupPassword" name="password1" placeholder="Enter your password" required>
+
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="password2" placeholder="Confirm password" required>
+
+                <button type="submit">Sign Up</button>
+
+                <a href="{% url 'login' %}" style="text-decoration: underline;">I have already an account</a>
+
+
+
+                <button type="button" onclick="window.location.href='{% url 'home' %}'">Back to Home Page</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; Dreamweaver.inc</p>
+    </footer>
+</body>
+</html>

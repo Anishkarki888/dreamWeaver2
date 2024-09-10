@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Recommendations</title>
+    <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+    <h1>Recommended Universities</h1>
+    
+    {% if recommendations %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>University</th>
+                <th>Cost</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>IELTS Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for uni in recommendations %}
+                <tr>
+                    <td>{{ uni.University }}</td>
+                    <td>{{ uni.Cost }}</td>
+                    <td>{{ uni.City }}</td>
+                    <td>{{ uni.Country }}</td>
+                    <td>{{ uni.IELTS|default:"N/A" }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+        <p>No recommendations available. Check if the data is being processed correctly.</p>
+    {% endif %}
+
+    
+    <br>
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>

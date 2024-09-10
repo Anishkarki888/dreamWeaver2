@@ -1,0 +1,12 @@
+{% extends 'loggedin.html' %}
+
+{% comment %} {% block title %}usa Application{% endblock %} {% endcomment %}
+
+{% block middle %}
+    <div class="container">
+        <h1>Service Currently Unavailable</h1>
+        <p>We are currently working on it. Please check back later.</p>
+        <a href="{% url 'updates' %}" class="btn">Go Back</a>
+    </div>
+
+    {% endblock %}
